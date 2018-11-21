@@ -124,7 +124,8 @@ void r1cs_to_json(protoboard<FieldT> pb, std::string path)
     std::ofstream fh;
     fh.open(path, std::ios::binary);
 
-    ss << "\n{\"primary_input\":[";
+    ss << "{";
+    ss << "\"primary_input\":[";
     int input_variables = primary_input.size(); 
     for (size_t i = 0; i < primary_input.size() + 1; ++i) 
     {   
@@ -135,7 +136,7 @@ void r1cs_to_json(protoboard<FieldT> pb, std::string path)
     }
 
     ss << "],\n";
-    ss << "\n{\"aux_input\":[";
+    ss << "\"aux_input\":[";
     for (size_t i = 0; i < auxiliary_input.size() + 1; ++i)
     {   
         ss << '"' << auxiliary_input[i].as_bigint() << '"';
